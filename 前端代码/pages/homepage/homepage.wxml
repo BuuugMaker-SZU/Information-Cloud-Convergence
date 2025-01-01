@@ -1,0 +1,175 @@
+<!--pages/homepage/homepage.wxml-->
+<!--搜索框-->
+<view class="searchbox-bottom">
+  <view class="search-box">
+    <image class="search-icon" src="/images/homepage/research.png"></image>
+    <input class="search-text" placeholder="{{searchText}}" bindfocus="searchJump"></input>
+  </view>
+</view>
+
+<!--轮播图-->
+<view class="center">
+  <swiper indicator-dots="true" indicator-color="white" indicator-active-color="grey" autoplay="true" circular="true" class="swipercontainer">
+    <block wx:for="{{bannerList}}" wx:key="index">
+      <swiper-item>
+        <view class="swiper-item1">
+          <image src="{{item.imgsrc}}" bindtap="goToDetailPage" data-activity="{{item}}"></image>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<!--分类搜索框-->
+<view class="retrieval-bottom">
+  
+  <!--
+  <view wx:if="{{showTimeView}}">
+    <view class="inner-component">
+      <view class="type-title">开始时间</view>
+      <view class="grid-list">
+        <view class="grid-item">
+          <wxs module="tool">
+            function indexOf(array, value) {
+              return array.indexOf(value)
+            }
+            module.exports.indexOf = indexOf;
+          </wxs>
+          <view class="activity-type-row" wx:for="{{timeTypes}}" wx:for-item="item" wx:key="index">
+            <view wx:if="{{tool.indexOf(TimeselectedItems,item)!==-1}}">
+              <view class="activity-type-item-clicked" bindtap="TimetoggleSelectedItem" data-item="{{item}}">
+                {{item}}
+              </view>
+            </view>
+            <view wx:else>
+              <view class="activity-type-item" bindtap="TimetoggleSelectedItem" data-item="{{item}}">
+                {{item}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+-->
+
+  
+  <view class="retrieval" bindtap="selectCompetition">竟赛精选</view>
+  <view class="retrieval" bindtap="selectWealth">财富走廊</view>
+  <view class="retrieval" bindtap="selectRecent">近期活动</view>
+  <view class="retrieval" bindtap="selectRecruitment">招贤纳士</view>
+
+  
+ 
+
+  <view bindtap="toggleTypeTitleBackground">
+    <image class="list-icon" src="/images/homepage/list.png" ></image>
+  </view>
+  <view wx:if="{{showTypeView}}">
+    <view class="inner-component">
+      <view class="type-title">活动类型</view>
+      <view class="grid-list">
+        <view class="grid-item">
+          <wxs module="tool">
+            function indexOf(array, value) {
+              return array.indexOf(value)
+            }
+            module.exports.indexOf = indexOf;
+          </wxs>
+          <view class="activity-type-row" wx:for="{{activityTypes}}" wx:for-item="item" wx:key="index">
+            <view wx:if="{{tool.indexOf(selectedItems,item)!==-1}}">
+              <view class="activity-type-item-clicked" bindtap="toggleSelectedItem" data-item="{{item}}">
+                {{item}}
+              </view>
+            </view>
+            <view wx:else>
+              <view class="activity-type-item" bindtap="toggleSelectedItem" data-item="{{item}}">
+                {{item}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="type-title">主办单位</view>
+      <view class="grid-list">
+        <view class="grid-item">
+          <wxs module="tool">
+            function indexOf(array, value) {
+              return array.indexOf(value)
+            }
+            module.exports.indexOf = indexOf;
+          </wxs>
+          <view class="activity-type-row" wx:for="{{hostTypes}}" wx:for-item="item" wx:key="index">
+            <view wx:if="{{tool.indexOf(HostselectedItems,item)!==-1}}">
+              <view class="activity-type-item-clicked" bindtap="HosttoggleSelectedItem" data-item="{{item}}">
+                {{item}}
+              </view>
+            </view>
+            <view wx:else>
+              <view class="activity-type-item" bindtap="HosttoggleSelectedItem" data-item="{{item}}">
+                {{item}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="type-title">参与人数</view>
+      <view class="grid-list">
+        <view class="grid-item">
+          <wxs module="tool">
+            function indexOf(array, value) {
+              return array.indexOf(value)
+            }
+            module.exports.indexOf = indexOf;
+          </wxs>
+          <view class="activity-type-row" wx:for="{{numberTypes}}" wx:for-item="item" wx:key="index">
+            <view wx:if="{{tool.indexOf(NumberselectedItems,item)!==-1}}">
+              <view class="activity-type-item-clicked" bindtap="NumbertoggleSelectedItem" data-item="{{item}}">
+                {{item}}
+              </view>
+            </view>
+            <view wx:else>
+              <view class="activity-type-item" bindtap="NumbertoggleSelectedItem" data-item="{{item}}">
+                {{item}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="submit-button-buttom">
+        <view class="reset-button" bindtap="resetScreen">重置</view>
+        <view class="submit-button" bindtap="submitScreen">提交</view>
+    </view>
+  </view>
+ </view>
+</view>
+
+
+<!--活动简介展示-->
+<view style="background-color: #f5f5f5;height: 20rpx;"></view>
+<view class="bottom"> 
+<scroll-view scroll-y="true" style="height: 830rpx;">
+  <!--循环渲染-->
+    
+  <view wx:for="{{activities}}" wx:key="index">
+    <view class="activity-introduction" bindtap="goToDetailPage" data-activity="{{item}}">
+      <view class="left-column">
+        <image class="EventImg" src="{{item.imgsrc}}"></image>
+      </view>
+      <view class="right-column">
+        <view class="activity-title">
+          <view class="Title">{{item.actname}}</view>
+          <view class="Status1" wx:if="{{item.status === '0'}}">招募中</view>
+          <view class="Status2" wx:else>已结束</view>
+        </view>
+        <text class="activity-message">{{item.introduction}}</text>
+        <view class="activity-type-location">
+          {{item.type}} {{item.location}}
+        </view>
+        <view class="text-line"></view>
+        <view class="activity-time">时间：{{item.date}}</view>
+      </view>
+    </view>
+  </view>
+  </scroll-view>
+</view>

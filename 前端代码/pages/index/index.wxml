@@ -1,0 +1,38 @@
+<view class="container" >
+  <view class="form-group">
+    <text>活动名称：</text>
+    <input placeholder="请输入活动名称" bindinput="handleInput" data-key="name" />
+  </view>
+
+  <view class="form-group">
+    <text>负责人：</text>
+    <input placeholder="请输入负责人姓名" bindinput="handleInput" data-key="person" />
+  </view>
+
+  <view class="form-group">
+    <text>主办单位：</text>
+    <input placeholder="请输入主办单位名称" bindinput="handleInput" data-key="organization" />
+  </view>
+
+  <view class="form-group">
+    <text>活动日期：</text>
+    <input placeholder="请选择活动日期" bindinput="handleInput" data-key="date" />
+  </view>
+
+  <view class="form-group description-group">
+    <text>活动简介：</text>
+    <textarea class="input-field" placeholder="请输入活动简介" bindinput="handleInput" data-key="description"></textarea>
+  </view>
+
+  
+</view>
+<view class="upload-group">
+    <text class="upload-text">上传图片：</text>
+    <view class="image-list">
+      <view wx:for="{{ images }}" wx:key="{{ index }}">
+        <image src="{{ item }}" mode="aspectFill" />
+        <view class="delete-btn" bindtap="deleteImage" data-index="{{ index }}">删</view>
+      </view>
+    </view>
+    <button class="upload-btn" bindtap="chooseImage">选择图片</button>
+  </view>

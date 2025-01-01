@@ -1,0 +1,115 @@
+/* pages/homepage/search.wxss */
+.search-icon {
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.delete-icon {
+  margin-right: 20rpx;
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.search-text {
+  width: 493rpx;
+  padding-left: 15rpx;
+  color: rgb(82, 81, 81);
+  display: flex;
+  align-items: center;
+  padding-bottom: 3rpx;
+}
+
+/* 搜索框底部 */
+.searchbox-bottom {
+  height: 80rpx;
+  color: #000;
+  background-color: #f5f5f5;
+  border: rgb(241, 238, 238) solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 搜索框本身 */
+.search-box {
+  height: 60rpx;
+  width: 600rpx;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  border-radius: 8rpx;
+  padding-left: 20rpx;
+}
+
+/* 历史记录相关样式 */
+.history {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.history-title {
+  font-size: 28rpx;
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+}
+
+.clear-icon {
+  height: 32rpx;
+  width: 32rpx;
+  margin-right: 15rpx;
+  margin-top: 10rpx;
+}
+
+/* 信息间的横线 */
+.text-line {
+  left: 2%;
+  width: 96%;
+  height:1px;
+  background-color: rgba(0, 0, 0, 0.137);
+  position: absolute;
+  top: 142rpx;
+}
+/* 搜索记录容器 */
+.search-history-container {
+  margin-top: 10rpx;
+}
+
+.search-history-row {
+  display: flex;
+  align-items: center;
+  margin-top: 10rpx;
+}
+
+.search-history-item {
+  flex: 1; /* 让历史记录文字占据剩余的空间 */
+  padding: 5rpx;
+  margin-left: 5rpx;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+  border-radius: 5rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.search-delete-icon {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 20rpx; /* 为了与文字之间留一些间隙 */
+  margin-right: 20rpx;
+}
+.search-time-icon {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 20rpx; /* 为了与文字之间留一些间隙 */
+  margin-right: 10rpx;
+}
+
+/* 分隔线 */
+.separator-line {
+  height: 1px;
+  background-color: #ccc;
+  margin-left: 15rpx; /* 与文字对齐 */
+  margin-right: 15rpx; /* 与文字对齐 */
+}

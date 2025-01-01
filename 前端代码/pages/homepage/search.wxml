@@ -1,0 +1,32 @@
+<!--pages/homepage/search.wxml-->
+<!--搜索框-->
+<view class="searchbox-bottom">
+  <view class="search-box">
+    <image class="search-icon" src="/images/homepage/research.png"></image>
+    <input class="search-text" bindinput="updateSearchText" value="{{searchText}}" bindtap="clearSearchTextOnFocus"  bindconfirm="confirmSearch"></input>
+    <image class="delete-icon" src="/images/homepage/delete.png" bindtap="clearSearchText"></image>
+  </view>
+</view>
+
+<view class="history">
+  <view class="history-title">历史搜索</view>
+  <view>
+    <image class="clear-icon" src="/images/homepage/delete2.png" bindtap="clearSearchHistory"></image>
+  </view>
+</view>
+<view class="text-line"></view>
+
+<!--历史搜索item-->
+<view class="search-history-container">
+  <view wx:for="{{historySearch}}" wx:key="index">
+    <view class="search-history-row">
+      <image class="search-time-icon" src="/images/homepage/time.png" ></image>
+      <text class="search-history-item" bindtap="navigateToSearchResult" data-item="{{item}}">{{item}}</text>
+      <image class="search-delete-icon" src="/images/homepage/delete1.png" bindtap="deleteHistory" data-item="{{item}}"></image>
+    </view>
+    <view class="separator-line"></view>
+  </view>
+  
+</view>
+
+       

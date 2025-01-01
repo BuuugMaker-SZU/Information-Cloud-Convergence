@@ -1,0 +1,223 @@
+/* pages/detail/detail.wxss */
+.imagesize{
+  display:flex;                    
+  justify-content: center;   
+  margin-bottom: 18rpx;     
+ }
+ .imagesize image { 
+   width:700rpx;
+   height:300rpx;
+}
+/* 在对应的.wxss文件中 */
+.outside{
+  display:flex; 
+  justify-content: center;  
+}
+.introduction {
+  width: 720rpx;
+  background-color: #FFFFFF; /* 设置背景颜色，可以根据需要修改 */
+  border-radius: 18rpx; /* 设置圆角半径，可以根据需要修改 */
+  border: 1rpx solid #00000031; /* 设置边框，可以根据需要修改 */
+}
+.title{
+  text-align: center;
+  font-size: 35rpx;
+  font-weight: bold; /* 设置字体加粗 */
+  margin-top: 15rpx;
+  margin-bottom: 25rpx;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgba(0, 0, 0, 0.75);
+}
+.info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+  
+  color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 15rpx;
+}
+
+.icon{
+  width: 28rpx; /* 设置图像的宽度 */
+  height: 28rpx; /* 设置图像的高度 */
+  margin-left: 30rpx;
+  margin-right: 12rpx;
+}
+
+.info_left {
+  flex: 1; /* 占据剩余空间，靠左 */
+  text-align: left; /* 左对齐 */
+  margin-left: 3%;
+  margin-bottom: 10rpx;
+}
+.info_right {
+  flex: 1; /* 占据剩余空间，靠右 */
+  text-align: right; /* 右对齐 */
+  margin-right: 5%;
+}
+.detail-title{
+  font-size: 30rpx;
+  font-weight: bolder; /* 设置字体加粗 */
+  margin-top: 18rpx;
+  margin-left: 30rpx;
+  margin-bottom: 8rpx;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgba(0, 0, 0, 1);
+}
+.detail-content {
+  padding-left: 30rpx; /* 左边距 */
+  padding-right: 30rpx; /* 右边距 */
+  font-size: 28rpx;
+  overflow: hidden; /* 隐藏溢出内容 */
+  display: -webkit-box;
+    -webkit-box-orient: vertical;
+  text-overflow: ellipsis; /* 显示省略号 */
+  white-space: normal; /* 允许换行 */
+  word-wrap: break-word; /* 确保文本正确换行 */
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.detail-content::before {
+  content: "\3000\3000"; /* Unicode 编码，代表中文全角空格 */
+}
+
+.detail-content-foot {
+  text-align: end;
+  padding-left: 30rpx; /* 左边距 */
+  padding-right: 30rpx; /* 右边距 */
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+  white-space: normal; /* 允许换行 */
+  word-wrap: break-word; /* 确保文本正确换行 */
+  color: rgba(0, 0, 0, 0.8);
+}
+
+
+.group {
+  width: 680rpx; /* 设置方框宽度 */
+  margin: 15rpx auto; /* 居中并设置上下间距 */
+  background-color: #FFFFFF; /* 设置方框背景颜色，可以根据需要修改 */
+  border-radius: 18rpx; /* 设置圆角半径，可以根据需要修改 */
+  border: 1rpx solid #00000031; /* 设置边框，可以根据需要修改 */
+  display: flex; /* 使用 flex 布局使内容水平居中 */
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  padding: 20rpx; /* 可选，用于设置内容与边框的内边距，可以根据需要修改 */
+}
+
+.group-item{
+  width: 450rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 28rpx;
+}
+.group-item text{
+  margin-left: 10rpx;
+}
+.group-title{
+  font-size: 38rpx;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 20rpx;
+}
+.group-info{
+  color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 8rpx; /* 设置下方间距，可以根据需要调整 */
+}
+.bold-text{
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.7);
+}
+.group-number{
+  font-weight: bold;
+  color: rgba(14, 180, 78, 0.8);
+}
+.red-text{
+  font-weight: bold;
+  color: rgba(250, 37, 37, 0.8);
+}
+.yellow-text{
+  font-weight: bold;
+  color: orange;
+}
+.group-flex{
+  width: 450rpx;
+ 
+  white-space: normal; /* 文本换行 */
+  word-wrap: break-word; /* 确保文本正确换行 */
+  overflow: hidden; /* 隐藏溢出部分文本 */
+  text-overflow: ellipsis; /* 当文本溢出时显示省略号 (...) */
+  display: flex;
+  
+}
+
+.group-flex1{
+  width: 450rpx;
+  margin-bottom: 5rpx;
+  white-space: normal; /* 文本换行 */
+  word-wrap: break-word; /* 确保文本正确换行 */
+  overflow: hidden; /* 隐藏溢出部分文本 */
+  text-overflow: ellipsis; /* 当文本溢出时显示省略号 (...) */
+  display: flex;
+  
+}
+
+.group-label {
+  flex: none; /* 根据需要调整 */
+  /* 其他样式，如 padding、margin */
+}
+
+.group-content {
+  flex-grow: 1; /* 让内容区域占据剩余空间 */
+  /* 其他样式，如 padding、margin */
+}
+
+.detail-content-foot {
+  text-align: end;
+}
+
+
+.button-view{
+  margin-left: 10rpx;
+}
+/* 在对应的 .wxss 文件中 */
+.contact-button {
+  height: 80rpx; /* 设置按钮高度，可以根据需要调整 */
+  background-color: #0CAC97; /* 设置按钮背景颜色，可以根据需要修改 */
+  color: #fff; /* 设置按钮文本颜色，可以根据需要修改 */
+  border: none; /* 移除按钮边框 */
+  border-radius: 8rpx; /* 设置按钮圆角半径，可以根据需要修改 */
+  font-size: 38rpx; /* 设置按钮文本字号，可以根据需要修改 */
+  text-align: center; /* 水平居中文本 */
+  line-height: 50rpx; /* 垂直居中文本 */
+}
+
+/* 鼠标悬停或点击时的样式（可选） */
+.contact-button:active {
+  background-color: #0056b3; /* 设置悬停或点击时的背景颜色，可以根据需要修改 */
+}
+
+.fixed-bar {
+  position: fixed; /* 使用固定定位 */
+  bottom: 0; /* 固定在页面底部 */
+  height: 70rpx;
+  width: 100%; /* 占据整个页面宽度 */
+  background-color: #fff; /* 设置底栏背景颜色 */
+  border-top: 1rpx solid #ccc; /* 可选的顶部边框样式 */
+  display: flex; /* 使用 Flex 布局使按钮水平居中 */
+  justify-content: flex-end; /* 按钮右对齐 */
+  padding: 10rpx; /* 可选的内边距，根据需要自定义 */
+}
+.create-button {
+  background-color: #577A88; /* 设置按钮背景颜色，可以根据需要修改 */
+  color: #fff;
+  border-radius: 8rpx; /* 设置按钮圆角，可以根据需要修改 */
+  padding: 13rpx 0rpx; /* 设置按钮内边距，可以根据需要修改 */
+  text-align: center; /* 设置文本右对齐 */
+  
+  font-size: 45rpx; /* 设置按钮文本字号，可以根据需要修改 */
+  font-weight: bold;
+}
+

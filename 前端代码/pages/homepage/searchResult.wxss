@@ -1,0 +1,141 @@
+/* pages/homepage/searchResult.wxss */
+.search-icon {
+  width: 28rpx;
+  height: 28rpx;
+}
+.delete-icon {
+  margin-right: 20rpx;
+  width: 32rpx;
+  height: 32rpx;
+}
+.search-text {
+  width: 493rpx;
+  padding-left: 15rpx;
+  color: rgb(82, 81, 81);
+  display: flex;
+  align-items: center;
+  padding-bottom: 3rpx;
+}
+
+/* 搜索框底部 */
+.searchbox-bottom {
+  height: 80rpx;
+  color: #000;
+  background-color: #f5f5f5;
+  border: rgb(241, 238, 238) solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 搜索框本身 */
+.search-box {
+  height: 60rpx;
+  width: 600rpx;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  border-radius: 8rpx;
+  padding-left: 20rpx;
+}
+
+/* 展示底部 */
+.bottom {
+  background-color: #f5f5f5;
+  margin-top: 0rpx;
+}
+
+/* 展示样式本身 */
+.activity-introduction {
+  position: relative;
+  background-color: #fff;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+  margin-bottom: 20rpx;
+  border-radius: 30rpx;
+  justify-content: space-around;
+  display: flex;
+}
+
+.left-column {
+  width: 300rpx;
+  height: 300rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.right-column {
+  flex: 6;
+}
+/* 活动展示图片样式 */
+.EventImg {
+  height: 200rpx;
+  width: 200rpx;
+}
+
+/* 展示活动标题行样式 */
+.activity-title {
+  height: 60rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+/* 展示活动标题样式 */
+.Title {
+  padding-top: 30rpx;
+  width: 300rpx;
+  font-weight: 600;
+}
+
+/* 展示活动状态样式 */
+.Status1 {
+  padding-top: 30rpx;
+  color: red;
+  padding-left: 10rpx;
+}
+
+.Status2 {
+  padding-top: 30rpx;
+  color: rgb(165, 161, 161);
+  padding-left: 10rpx;
+}
+
+/* 展示活动信息样式-活动简介 */
+.activity-message {
+  color: rgba(0, 0, 0, 0.8);
+  /* 使用 rgba 函数设置透明度为 0.5 */
+  display: flex;
+  justify-content: flex-start;
+  height: 90rpx;
+  width: 410rpx;
+  font-size: 29rpx;
+  padding-bottom: 20rpx;
+  padding-top: 30rpx;
+}
+
+/* 展示活动信息样式-活动类型+地点 */
+.activity-type-location {
+  color: rgba(0, 0, 0, 0.6);
+  /* 使用 rgba 函数设置透明度为 0.5 */
+  display: flex;
+  justify-content: flex-start;
+  height: 20rpx;
+  font-size: 26rpx;
+  padding-bottom: 10rpx;
+}
+/* 信息间的横线 */
+.text-line {
+  width: 58%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.137);
+  position: absolute;
+  top: 240rpx;
+}
+
+/* 展示活动信息样式-横线下 */
+.activity-time {
+  height: 35rpx;
+  font-size: 25rpx;
+  padding-left: 0%;
+  padding-top: 20rpx;
+}

@@ -1,0 +1,36 @@
+<!--pages/homepage/searchResult.wxml-->
+<!--搜索框-->
+<view class="searchbox-bottom">
+  <view class="search-box">
+    <image class="search-icon" src="/images/homepage/research.png"></image>
+    <input class="search-text" value="{{searchText}}" bindfocus="searchJump"></input>
+  </view>
+</view>
+
+<!--渲染与搜索关键词相关的活动-->
+
+<view class="bottom"> 
+<scroll-view scroll-y="true" style="height: 1378rpx;">
+  <!--循环渲染-->
+  <view wx:for="{{activities}}" wx:key="index">
+    <view class="activity-introduction" bindtap="goToDetailPage" data-activity="{{item}}">
+      <view class="left-column">
+        <image class="EventImg" src="{{item.imgsrc}}"></image>
+      </view>
+      <view class="right-column">
+        <view class="activity-title">
+          <view class="Title">{{item.actname}}</view>
+          <view class="Status1" wx:if="{{item.status === '0'}}">招募中</view>
+          <view class="Status2" wx:else>已结束</view>
+        </view>
+        <textarea class="activity-message">{{item.introduction}}</textarea>
+        <view class="activity-type-location">
+          {{item.type}} {{item.location}}
+        </view>
+        <view class="text-line"></view>
+        <view class="activity-time">时间：{{item.date}}</view>
+      </view>
+    </view>
+  </view>
+  </scroll-view>
+</view>

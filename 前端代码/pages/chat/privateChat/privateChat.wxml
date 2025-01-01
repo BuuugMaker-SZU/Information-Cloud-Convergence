@@ -1,0 +1,170 @@
+<!--privateChat.wxml-->
+<page-meta>
+  <navigation-bar title="{{friend.name}}" front-color="#000000" background-color="#F1F1F1" />
+</page-meta>
+<view class="chat">
+  <view class="chat-box">
+    <view class="scroll-view">
+      <image wx:if="{{history.loading}}" class="history-loaded" src="/static/images/loading.svg" />
+      <view wx:else>
+        <view class="history-loaded" wx:if="{{history.allLoaded}}">已经没有更多的历史消息</view>
+        <view class="load" wx:else>下拉获取历史消息</view>
+      </view>
+      <!--已经收到的消息-->
+      <checkbox-group bindchange="selectMessages">
+        <view wx:for="{{history.messages || []}}" wx:for-index="index" wx:key="index" wx:for-item="message">
+          <!--时间显示，类似于微信，隔5分钟不发言，才显示时间-->
+          <view class="time-lag">{{message.showTime}}</view>
+          <!--消息内容-->
+          <view class="message-recalled" wx:if="{{message.recalled}}">
+            <view wx:if="{{message.senderId !== currentUser.id}}">{{friend.name}}撤回了一条消息</view>
+            <view wx:else class="message-recalled-self">
+              <view>你撤回了一条消息</view>
+              <view class="re-edit" wx:if="{{message.editable}}" data-text="{{message.payload.text}}" bindtap="editRecalledMessage">重新编辑
+              </view>
+            </view>
+          </view>
+          <view class="message-item" wx:else>
+            <view class="message-item-checkbox" wx:if="{{messageSelector.visible}}">
+              <checkbox value="{{message.messageId}}" checked="{{message.checked}}" />
+            </view>
+            <view class="{{message.senderId === currentUser.id ? 'message-item-content self' : 'message-item-content'}}">
+              <view class="avatar" wx:if="{{message.senderId === currentUser.id}}">
+                <image src="{{currentUser.avatar}}"></image>
+              </view>
+              <view class="avatar" wx:else>
+                <image src="{{friend.avatar}}"></image>
+              </view>
+              <view class="content" data-messageid="{{message.messageId}}" bindlongpress="showActionPopup">
+                <view class="message-payload">
+                  <image src="/static/images/pending.gif" class="pending" wx:if="{{message.status === 'sending'}}"></image>
+                  <image src="/static/images/failed.png" class="send-fail" wx:if="{{message.status == 'fail'}}"></image>
+                  <rich-text class="text-content" nodes="{{message.node}}" wx:if="{{message.type ==='text'}}"></rich-text>
+                  <image class="image-content" wx:if="{{message.type === 'image'}}" src="{{message.payload.url}}" bindtap="previewImage" data-src="{{message.payload.url}}" mode="widthFix" />
+                  <view wx:if="{{message.type ==='audio'}}" class="audio-content" bindtap="playAudio" data-message="{{message}}">
+                    <view class="audio-facade" style="width:{{message.width}}">
+                      <image wx:if="{{audioPlayer.playingMessage.messageId === message.messageId}}" class="audio-facade-bg audio-play-icon" src="/static/images/play.gif"></image>
+                      <image wx:else class="audio-facade-bg" src="/static/images/voice.png"></image>
+                      <view class="record-second">{{message.finalDuration}}"</view>
+                    </view>
+                  </view>
+                  <view class="video-snapshot" bindtap="playVideo" data-url="{{message.payload.video.url}}" data-duration="{{message.payload.video.duration}}" wx:if="{{message.type == 'video'}}">
+                    <image class="thumbnail-image" src="{{message.payload.thumbnail.url}}" mode="aspectFit"></image>
+                    <image class="play-icon" src="/static/images/play.png" mode="aspectFit"></image>
+                  </view>
+                  <view class="file-content" data-message="{{message}}" wx:if="{{message.type == 'file'}}" bindtap="downLoadFile">
+                    <view class="file-info">
+                      <view class="file-name">{{ message.payload.name }}</view>
+                      <view class="file-size">{{ message.size }}KB</view>
+                    </view>
+                    <image class="file-img" src="/static/images/file-icon.png"></image>
+                  </view>
+                  <view wx:if="{{message.type === 'order'}}" class="order-content">
+                    <view class="order-id">小组编号：{{ message.payload.groupid }}</view>
+                    <view class="order-body">
+                      <view class="charge-name">
+                        <text style="color: #577A88;">"{{message.payload.chargename}}"</text>
+                        邀请你加入
+                        <text style="color: #577A88;">"{{ message.payload.actname}}"</text>
+                        的
+                        <text style="color: #577A88;">"{{ message.payload.groupname}}"</text>
+                      </view>
+                    </view>
+                    <view class="accept-invitation" wx:if="{{!message.payload.confirmInvitation}}" data-message="{{message}}" bindtap="JudegeInvitation">接受邀请</view>
+                    <!-- 如果 confirmInvitation 为真，显示已接受邀请 -->
+                    <view class="confirm-invitation" wx:else>已接受邀请</view>
+                  </view>
+                </view>
+                <view class="{{message.read ?'message-read':'message-unread'}}">
+                  <view wx:if="{{message.senderId === currentUser.id && message.status==='success'}}">
+                    {{message.read ? '已读' : '未读'}}
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </checkbox-group>
+    </view>
+    <!--发送消息，视频，语音，自定义消息操作-->
+    <view class="action-box" wx:if="{{!videoPlayer.visible &&!messageSelector.visible}}">
+      <view class="action-top">
+        <view bindtap="switchAudioKeyboard" class="action-icon">
+          <image class="more" wx:if="{{audio.visible}}" src="/static/images/jianpan.png"></image>
+          <image class="more" wx:else src="/static/images/audio.png"></image>
+        </view>
+        <!-- 录音 -->
+        <GoEasyRecorder style="flex: 1;" wx:if="{{audio.visible}}" bind:onStop="onRecordStop"></GoEasyRecorder>
+        <!-- GoEasyIM最大支持3k的文本消息，如需发送长文本，需调整输入框maxlength值 -->
+        <input wx:else type="text" maxlength="700" placeholder="发送消息" confirm-hold hold-keyboard="{{true}}" adjust-position="{{true}}" class="consult-input" data-text="text" bindinput="setContent" bindfocus="messageInputFocusin" value="{{text}}" />
+        <view bindtap="switchEmojiKeyboard">
+          <image class="more" wx:if="{{emoji.visible}}" src="/static/images/jianpan.png"></image>
+          <image class="more" wx:else src="/static/images/emoji.png"></image>
+        </view>
+        <view>
+          <image bindtap="showOtherTypesMessagePanel" class="more" src="/static/images/more.png" />
+        </view>
+        <view wx:if="{{text}}" class="send-btn-box">
+          <text class="btn" bindtap="sendTextMessage">发送</text>
+        </view>
+      </view>
+      <!--展示表情列表-->
+      <view class="action-bottom action-bottom-emoji" wx:if="{{emoji.visible}}">
+        <image class="emoji-item" wx:for="{{emoji.map}}" wx:for-item="emojiItem" wx:for-index="key" wx:key="key" src="{{emoji.url + emojiItem}}" bindtap="chooseEmoji" data-emojiKey="{{key}}"></image>
+      </view>
+      <!--展示其他消息类型面板-->
+      <view class="action-bottom" wx:if="{{otherTypesMessagePanelVisible}}">
+        <view class="more-item" bindtap="sendImageMessage">
+          <image class="operation-icon" src="/static/images/picture.png"></image>
+          <text class="operation-title">图片</text>
+        </view>
+        <view class="more-item" bindtap="sendVideoMessage">
+          <image class="operation-icon" src="/static/images/video.png"></image>
+          <text class="operation-title">视频</text>
+        </view>
+        <view class="more-item" bindtap="showOrderMessageList">
+          <image class="operation-icon" src="/static/images/order.png"></image>
+          <text class="operation-title">活动</text>
+        </view>
+        <view class="more-item" bindtap="sendFileMessage">
+          <image class="operation-icon" src="/static/images/file.png"></image>
+          <text class="operation-title">文件</text>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{orderList.visible}}" class="order-list">
+      <view class="orders-content">
+        <view class="title">
+          <view>请选择一个队伍</view>
+          <view class="close" bindtap="hideOrderMessageList">×</view>
+        </view>
+        <scroll-view scroll-y="true" style="height: 620rpx;">
+          <view class="orders">
+            <view wx:for="{{orderList.orders}}" wx:key="index" wx:for-item="order" class="order-item" bind:tap="sendOrderMessage" data-order="{{order}}">
+              <view class="order-id">小组编号：{{ order.groupid }}</view>
+              <view class="order-body">
+                <view class="order-name">{{ order.actname }}</view>
+                <view class="order-right">
+                  <view class="order-price">{{ order.chargename }}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+    <view class="action-popup" wx:if="{{actionPopup.visible}}">
+      <view class="layer"></view>
+      <view class="action-box">
+        <view class="action-item" bindtap="deleteSingleMessage">删除</view>
+        <view class="action-item" wx:if="{{actionPopup.recallable}}" bindtap="recallMessage">撤回</view>
+        <view class="action-item" bindtap="showCheckBox">多选</view>
+        <view class="action-item" bindtap="hideActionPopup">取消</view>
+      </view>
+    </view>
+    <view class="messageSelector-box" wx:if="{{messageSelector.visible}}">
+      <image class="messageSelector-btn" bindtap="deleteMultipleMessages" src="/static/images/delete.png"></image>
+    </view>
+  </view>
+  <GoEasyVideoPlayer id="videoPlayer"></GoEasyVideoPlayer>
+</view>

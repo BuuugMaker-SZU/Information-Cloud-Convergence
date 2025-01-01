@@ -1,0 +1,47 @@
+<view class="container" >
+  <view class="form-group">
+    <text>小组名称：</text>
+    <input placeholder="请输入小组名称" bindinput="handleInput" data-key="name" />
+  </view>
+
+  <view class="form-group">
+    <text>负责人：</text>
+    <input placeholder="请输入姓名" bindinput="handleInput" data-key="person" />
+  </view>
+
+  <view class="form-group">
+    <text>所需人数：</text>
+    <input placeholder="请输入需要人数" bindinput="handleInput" data-key="number"  type="number"/>
+    <!-- <text wx:if="{{!validInput}}" class="error">请输入有效的数字</text> -->
+    <!-- 验证输入合法性（待添加）/但好像真机演示自动强制使用数字键盘了 -->
+  </view>
+
+  <view class="form-group">
+  <text>活动日期：</text>
+  <picker mode="date" bindchange="handleDateChange">
+    <view class="date-picker1" style="color: dimgray">
+      {{selectedDate || '请选择活动开始日期>'}}
+    </view>
+  </picker>
+  </view>
+
+<view class="form-group">
+<text>联系方式：</text>
+
+</view>
+
+
+  <view class="form-group description-group">
+    <text>工作内容：</text>
+    <textarea class="input-field" placeholder="请输入活动简介" bindinput="handleInput" data-key="description"></textarea>
+  </view>
+
+  
+</view>
+  <view class="upload-group">
+    <view class="release">
+    <button class="publish-btn" bind:tap="publish" >发布</button>
+
+  <view wx:if="{{ showSuccess }}" class="success-message">发布成功</view>
+  </view>
+  </view>

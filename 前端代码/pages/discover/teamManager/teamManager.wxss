@@ -1,0 +1,35 @@
+/* pages/teamManager.wxss */
+.content{
+  width: 100%;
+  height: 620px;
+  background-color: white;
+}
+
+.group-content{ 
+  display: flex;
+  justify-content: space-between; /* 将子元素分散对齐，确保button位于模块的水平中线上 */
+  align-items: center; /* 将子元素在纵轴上居中对齐 */
+ } 
+ .group{ 
+   flex: 1;
+   margin-left: 10px; 
+   display: inline-block; 
+   width: 200px; 
+ } 
+ .group text {
+  white-space: pre-line; /* 允许文本换行 */
+}
+ .group-button{ 
+   display: inline-block; 
+   height: 40rpx; 
+   width: 80rpx; 
+   border: none; 
+   border-radius: 8rpx; 
+   text-align: center; 
+   margin-right: 70px;
+ } 
+.scroll-button{
+  text-align: center;
+  font-weight: lighter;
+  font-size: 15px;
+}

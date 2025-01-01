@@ -1,0 +1,117 @@
+<view class="create-page">
+<view class="container1"  style="position: relative; left: 35rpx; top: 30rpx">
+<text class="con_text">活动发布</text>
+<view class="form-group">
+<text class="star">*</text>
+    <text>活动名称：</text>
+    
+    <input placeholder="请输入活动名称" bindinput="handleInput" data-key="name" />
+  </view>
+
+  <view class="pick">
+    <text class="star">*</text>
+    <text>活动类型：</text>
+    <picker bindchange="pickerChange" value="{{selectedValue}}" range="{{activityTypes}}">
+      <view class="picker" style="color: dimgray">
+        {{selectedValue || '请点击选择活动类型>'}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="form-group">
+    <text class="star">*</text>
+    <text>活动地点：</text>
+    <input placeholder="请输入活动地点" bindinput="handleInput" data-key="organization" />
+  </view>
+
+  <view class="form-group">
+  <text class="star">*</text>
+  <text>活动日期：</text>
+  <picker mode="date" bindchange="handleDateChange">
+    <view class="date-picker1" style="color: dimgray">
+      {{selectedDate || '请选择活动开始日期>'}}
+    </view>
+  </picker>
+  <!-- <picker mode="date" bindchange="handleDateChange">
+    <view class="date-picker2" style="color: dimgray">
+      {{selectedDate || '活动结束日期>'}}
+    </view>
+  </picker> -->
+  <!-- 活动结束时间选择器哦 -->
+</view>
+  
+<view class="form-group">
+  <text class="star">*</text>
+    <text>主办单位：</text>
+    <input placeholder="请输入主办单位名称" bindinput="handleInput" data-key="organizor" />
+  </view>
+ 
+  <view class="form-group">
+    <text class="star">*</text>
+  <view class="form-label">允许增加小队：</view>
+  <radio-group bindchange="handleRadioChange1">
+    <label class="radio-label">
+      <radio value="1" checked="{{permission === '1'}}">是</radio>
+    </label>
+    <label class="radio-label">
+      <radio value="0" checked="{{permission === '0'}}">否</radio>
+    </label>
+  </radio-group>
+</view>
+
+<view class="form-group">
+  <text class="star">*</text>
+  <view class="form-label">是否允许报名：</view>
+  <radio-group bindchange="handleRadioChange2">
+    <label class="radio-label">
+      <radio value="1" checked="{{status === '1'}}">是</radio>
+    </label>
+    <label class="radio-label">
+      <radio value="0" checked="{{status === '0'}}">否</radio>
+    </label>
+  </radio-group>
+</view>
+
+</view>
+
+<view class="container2" style="position: relative; left: 35rpx; top: 57rpx">
+ 
+
+  <view class="form-group description-group">
+    <text class="star">*</text>
+    <text>活动介绍：</text>
+    <textarea class="input-field" placeholder="请输入活动介绍" bindinput="handleInput" data-key="description1"></textarea>
+  </view>
+
+  <view class="form-group description-group">
+    <text class="star">*</text>
+    <text>活动奖励：</text>
+    <textarea class="input-field" placeholder="请输入活动奖励" bindinput="handleInput" data-key="description2"></textarea> 
+  </view>
+</view>
+  
+
+  <view class="upload-group">
+    <view class="container3">
+      <text class="star">*</text>
+      <text>上传图片：</text>
+    </view>
+    <view class="image-list">
+      <view wx:for="{{ images }}" wx:key="{{ index }}">
+        <image src="{{ item }}" mode="aspectFill" />
+        <view class="delete-btn" bindtap="deleteImage" data-index="{{ index }}">删</view>
+      </view>
+    </view>
+      <button class="upload-btn" bindtap="chooseImage">选择图片</button>
+</view>
+
+
+    <view class="release">
+    <button class="publish-btn" bind:tap="publish" style="width: 400rpx;">
+    <text class="publish-content">发布</text>
+    </button>
+    </view>
+
+  <view wx:if="{{ showSuccess }}" class="success-message">发布成功</view>
+ 
+</view>

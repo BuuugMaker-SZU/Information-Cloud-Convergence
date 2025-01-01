@@ -1,0 +1,105 @@
+<!-- 竞赛详情页 -->
+<!--pages/detail/detail.wxml-->
+<view class='imagesize'>
+  <image src="{{imgsrc}}" class='in-image' mode="aspectFill">
+  </image>
+</view>
+
+<view class="outside">
+  <view class='introduction'>
+    <view class="title">{{actname}}</view>
+    <view class="info-container">
+      <image class="icon" src="/images/Detail/page/时间.png" />
+      <view class="info_left">时间</view>
+      <view class="info_right">{{date}}</view>
+    </view>
+
+    <view class="info-container">
+      <image class="icon" src="/images/Detail/page/类别.png" />
+      <view class="info_left">类别</view>
+      <view class="info_right">{{type}}</view>
+    </view>
+
+    <view class="info-container">
+      <image class="icon" src="/images/Detail/page/主办方.png" />
+      <view class="info_left">主办单位</view>
+      <view class="info_right">{{organizer}}</view>
+    </view>
+
+    <navigator class="info-container" url="/pages/map/map">
+      <image class="icon" src="/images/Detail/page/位置.png" />
+      <view class="info_left">位置</view>
+      <view class="info_right">{{location}}</view>
+    </navigator>
+
+    <view class="detail">
+      <view class="detail-title">活动介绍</view>
+      <view class="detail-body">
+        <view class="detail-content">
+          <text>{{isFoldedIntro && introduction.length > maxLen ? (foldedIntro + '...') : introduction}}</text>
+        </view>
+        <view class="detail-content-foot">
+          <text wx:if="{{introduction.length > maxLen}}" bindtap="toggleFoldIntro">{{isFoldedIntro ? '全文' : '收起'}}</text>
+        </view>
+        
+      </view>
+    </view>
+
+    <view class="detail">
+      <view class="detail-title">活动奖励</view>
+      <view class="detail-body">
+        <view class="detail-content">
+          <text>{{isFoldedReward && reward.length > maxLen ? (foldedReward + '...') : reward}}</text>
+        </view>
+        <view class="detail-content-foot">
+          <text wx:if="{{reward.length > maxLen}}" bindtap="toggleFoldReward">{{isFoldedReward ? '全文' : '收起'}}</text>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>
+
+<view class="group" wx:for="{{grouplist}}" wx:key="id">
+  <view class="group-item">
+    <view class="group-flex">
+      <text class="group-title">{{item.groupname}}</text>
+    </view>
+    <view class="group-flex1">
+      <text class="bold-text">组长:</text> 
+      <text class="group-info">{{item.chargename}}</text>
+    </view>
+    <view class="group-flex1">
+      <text class="bold-text">时间:</text> <text class="group-info">{{item.date}}</text>
+    </view>
+    <view class="group-flex1">
+      <view class="group-label">
+        <text class="bold-text">内容:</text> 
+      </view>
+      <view class="group-content">
+        <view class="group-content-content">
+          <text class="group-info">{{item.isFolded && item.introduction.length > maxlen ? ( item.foldIntro + '...') : item.introduction}}</text>
+        </view>
+        <view class="group-content-foot">
+          <text wx:if="{{item.introduction.length > maxlen}}" bindtap="toggleFoldItemIntro" data-index="{{index}}">{{item.isFolded ? '全文' : '收起'}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="group-flex1">
+      <text class="bold-text">人数:</text> 
+      <text class="group-number {{item.current >= item.required ? 'red-text' : item.current >= item.required * 0.8 ? 'yellow-text' :''}}">{{item.current}}/{{item.required}}</text>
+    </view>
+  </view>
+  <view class="button-view">
+    <button style="width:200rpx" class="contact-button" data-chargename="{{item.chargename}}" data-openid="{{item.openid}}" bindtap="getContact">报名</button>
+  </view>
+</view>
+
+<view style="height: 76rpx;"></view>
+
+<view class="fixed-bar" style="width: 820rpx; height: 78rpx; display: flex; box-sizing: border-box;" >
+  <button class="create-button" style="width: 100%; height: 100rpx; display: block; box-sizing: border-box;left: -35rpx; top: -20rpx; position: relative" bindtap="goToCreatePage" hover-class="weui-cell_active">创建</button>
+</view>
+
+
+
