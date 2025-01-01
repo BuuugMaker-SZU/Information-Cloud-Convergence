@@ -1,0 +1,54 @@
+
+page {
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.intro-input {
+  background-color: #fff;
+  margin-top: 20rpx;
+  height: 600rpx;
+  width: 100%;
+  border-radius: 3%;
+}
+
+.input-label {
+  text-align: left;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+
+.input-field {
+  height: 40px;
+  font-size: 30rpx;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: left;
+}
+.intro-edit__input--desc {
+  font-size: 26rpx;
+  padding: 16rpx 32rpx;
+  color: #999;
+  margin-bottom: 200rpx;
+}
+
+/* 保存按钮样式 */
+.save-button {
+  background-color: rgb(87, 122, 136);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 30px;
+  margin: 300rpx; /* 上边距 */
+  font-size: 32rpx;
+  cursor: pointer; /* 设置光标样式为默认（可点击） */
+}
+
+/* 禁用状态下的按钮颜色和透明度 */
+.save-button[disabled] {
+  background-color: silver;
+  color: #fff; /* 设置文本颜色为白色 */
+  cursor: not-allowed; /* 设置光标样式为禁用 */
+}

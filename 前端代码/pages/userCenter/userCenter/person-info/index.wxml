@@ -1,0 +1,35 @@
+<!-- profile.wxml -->
+<view class="profile">
+  <navigator url="/pages/edit/edit" class="form-item" hover-class="navigator-hover">
+    <text class="label">头像</text>
+    <image src="{{avatar}} " class="photo" />
+    <image src="/images/icon-right/right.png" class="icon" />
+  </navigator>
+
+  <navigator url="/pages/edit/edit" class="form-item" hover-class="navigator-hover">
+    <text class="label">昵称</text>
+    <text class="content">
+      <text class="info" >{{nickname}}</text>
+    </text>
+    <image src="/images/icon-right/right.png" class="icon" />
+  </navigator>
+  <view class="form-item" hover-class="navigator-hover" bindtap="showGenderPicker">
+    <text class="label">性别</text>
+        <text class="content">
+          <text class="info">{{genderOptions[genderIndex]}}
+          </text>
+        </text>
+      
+    <image src="/images/icon-right/right.png" class="icon" />
+  </view>
+
+  <!-- 类似的其他表单项 -->
+</view>
+<!-- 性别选择器弹窗 -->
+<view class="gender-picker-modal" wx:if="{{genderPickerVisible}}"  placement="bottom">
+    <view class="gender-picker-container">
+      <!-- 在这里放置性别选择器的内容 -->
+      <picker mode="selector" range="{{genderOptions}}" value="{{genderIndex}}" bindchange="changeGender">
+      </picker>
+    </view>
+</view>

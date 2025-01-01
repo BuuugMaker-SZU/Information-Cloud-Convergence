@@ -1,0 +1,170 @@
+/* pages/userCenter/userCenter.wxss */
+page {
+  background-color: #f5f5f5;
+}
+.container{
+	padding:15px 10px;
+}
+.user-head{
+   height: 50px;
+   background-color: white;
+	 height: 200rpx;
+   border-bottom: 1px solid #f5f5f5;
+}
+
+.weui-cells__title{
+  background-color: #f5f5f5;
+ /* border-radius: 8px;*/
+  padding: 30rpx 32rpx 30rpx 32rpx;
+  margin-right: 0;
+}
+
+.cell-box {
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+
+.t-cell {
+  background-color: white;
+  padding: 30rpx 32rpx 30rpx 32rpx;
+  display: flex; /* 使用 flex 布局 */
+  justify-content: space-between; /* 使内容靠左和靠右对齐 */
+  align-items: center; /* 垂直居中对齐 */
+  border-top: 1rpx solid #f5f5f5;
+}
+.weui-cell__bd{
+  color: rgb(0, 0, 0); /* 设置文本颜色为黑色 */
+  font-size: 32rpx; /* 设置字体大小为36rpx (你可以根据需要调整大小) */
+  letter-spacing: 0; /* 取消字母间距 */
+  text-align: left; /* 文本左对齐 */
+}
+
+
+
+.icon-right{
+  width: 30rpx;
+  height:30rpx;
+  margin-left: 10rpx;
+}
+
+/* 定义悬停样式 */
+.weui-cell_active {
+  background-color: #F2F2F2; /* 改变背景颜色 */
+  transition: background-color 0.2s, color 0.2s; /* 添加平滑过渡效果 */
+}
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  margin-right: 20px;
+}
+
+.nickname {
+  font-size: 20px;
+}
+.user-Ava{
+    position: absolute;
+    height: 120rpx;
+    width: 120rpx;
+    margin: 30rpx 0rpx 0rpx 50rpx;
+    border-radius: 8px;
+	  overflow: hidden;
+}
+.nickname{
+    position: absolute;
+    margin: 30rpx 0rpx 0rpx 200rpx;
+	  border-radius: 100rpx;
+	  font-weight: bolder;
+	  font-size: large;
+    font-family: -webkit-body;
+}
+.welcome{
+  position: absolute;
+  margin: 30rpx 0rpx 0rpx 200rpx;
+  border-radius: 100rpx;
+  font-size: large;
+  font-weight: bolder;
+  font-family: -webkit-body;
+  font-size: 15px;
+}
+.login{
+  position: absolute;
+  border-radius: 100rpx;
+  font-size: small;
+  width: 150rpx;
+  height: 75rpx; 
+  display: block; 
+  box-sizing: border-box; 
+  left: 570rpx; 
+  top: 10rpx; 
+}
+
+.user-text{
+    position: absolute;
+    margin: 110rpx 0rpx 0rpx 200rpx;
+	  border-radius: 100rpx;
+	  font-family: -webkit-body;
+	  font-size: small;
+	  color:rgba(0,0,0,.3);
+}
+
+
+/* 弹出窗口位于页面底部 */
+.service_window {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: #f5f5f5;
+  z-index: 999; /* 确保弹出窗口在其他内容上方显示 */
+}
+
+/* 弹出窗口标题 */
+.service_window .win-title {
+  background: #fff;
+  text-align: center;
+  font-size: 24rpx;
+  color: #999;
+  height: 112rpx;
+  line-height: 112rpx;
+  border-top: 1rpx solid #e5e5e5;
+  border-radius: 16rpx 16rpx 0 0;
+}
+
+
+
+/* 其他内容样式（电话客服、在线客服、取消按钮） */
+.service_window .win-phone,
+.service_window .win-close {
+  background: #fff;
+  height: 100rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 30rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333;
+}
+
+/* 在线客服按钮样式 */
+.service_window .win-phone.online {
+  margin-bottom: 20rpx;
+  border-radius: 0;
+}
+
+/* 移除在线客服按钮的伪元素 */
+.service_window .win-phone.online::after {
+  content: none;
+}
+
+/* 取消按钮样式 */
+.service_window .win-close {
+  color: #333;
+  border: 0;
+  height: 120rpx;
+  border-top: 2rpx solid #e5e5e5; /* 添加顶部边框以与内容分隔 */
+}

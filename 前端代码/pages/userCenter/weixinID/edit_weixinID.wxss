@@ -1,0 +1,54 @@
+/* pages/userCenter/weixinID/edit_weixinID.wxss */
+page {
+  background-color: #f5f5f5;
+}
+.weixinId-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20rpx;
+  height: 120rpx;
+  width: 100%;
+  background-color: #fff;
+}
+
+.input-label {
+  flex: 1;
+  text-align: left;
+  margin-left: 10rpx;
+}
+
+.input-field {
+  flex: 4;
+  height: 40px;
+  font-size: 30rpx;
+  padding: 5px;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.weixinID-edit__input--desc {
+  font-size: 26rpx;
+  padding: 16rpx 32rpx;
+  color: #999;
+  margin-bottom: 200rpx;
+}
+
+/* 保存按钮样式 */
+.save-button {
+  background-color: rgb(87, 122, 136);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 30px;
+  margin: 300rpx; /* 上边距 */
+  font-size: 32rpx;
+  cursor: pointer; /* 设置光标样式为默认（可点击） */
+}
+
+/* 禁用状态下的按钮颜色和透明度 */
+.save-button[disabled] {
+  background-color: silver;
+  color: #fff; /* 设置文本颜色为白色 */
+  cursor: not-allowed; /* 设置光标样式为禁用 */
+}

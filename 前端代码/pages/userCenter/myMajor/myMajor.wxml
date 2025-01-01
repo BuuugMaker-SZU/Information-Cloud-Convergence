@@ -1,0 +1,12 @@
+<!--pages/userCenter/myCollege/myCollege.wxml-->
+
+<view class="myMajor-input">
+  <picker mode="selector" range="{{majors}}" bindchange="onMajorChange" class="picker-view">
+  <view class = 'select'>专业: {{Major || '点击选择'}}</view>
+</picker>
+
+
+</view>
+<view class="myMajor-edit__input--desc" style="width: 750rpx; height: 88rpx; display: block; box-sizing: border-box"> 最多可输入15个字 </view>
+
+<button class="save-button" bindtap="onSaveMajor" disabled="{{!Major}}" style="width: 686rpx; height: 88rpx; display: block; ">保存</button>

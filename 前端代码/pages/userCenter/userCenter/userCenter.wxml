@@ -1,0 +1,109 @@
+<!--pages/userCenter/userCenter.wxml-->
+<view class="page">
+  <view class="user-head" bindtap="bindViewTap">
+    <view class="user-Ava">
+      <image class="avatar" src="{{userInfo.avatarUrl}}" wx:if="{{hasUserInfo}}" style="border-radius: 10px !important;"></image>
+    </view>
+    <text class="nickname" wx:if="{{hasUserInfo}}">{{userInfo.nickName}}</text>
+    <view bindtap="getUserProfile" wx:else>
+      <view class="user-Ava">
+      <image class="avatar" src="images/homepage/Activity-book.png" style="border-radius: 10px !important;"></image>
+      </view>
+      <text class="user-text">点击授权获取微信昵称及头像</text>
+    
+    </view>
+    
+
+  </view>
+
+  <view class="weui-cells__title"></view>
+  <view class="cell-box">
+    <navigator url="./PhoneNumber/edit_phone" class="t-cell" hover-class="weui-cell_active" bindtap="bindPhoneTap">
+      <view class="weui-cell__bd">
+        <text>联系电话</text>
+      </view>
+      <view class="icon">
+        <image class="icon-right" src="/images/icon-right/right.png"></image>
+      </view>
+    </navigator>
+    
+
+    <navigator url="./weixinID/edit_weixinID" class="t-cell" hover-class="weui-cell_active"
+    bindtap="bindwxIDTap">
+      <view class="weui-cell__bd">
+        <text>微信号</text>
+      </view>
+      <view class="icon">
+        <image class="icon-right" src="/images/icon-right/right.png"></image>
+      </view>
+    </navigator> 
+
+    <navigator url="./myMajor/myMajor" class="t-cell" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">
+        <text>我的专业</text>
+      </view>
+      <view class="icon">
+        <image class="icon-right" src="/images/icon-right/right.png"></image>
+      </view>
+    </navigator>    
+
+    <navigator url="/pages/teamManager/teamManager" class="t-cell" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">
+        <text>我的队伍</text>
+      </view>
+      <view class="icon">
+        <image class="icon-right" src="/images/icon-right/right.png"></image>
+      </view>
+    </navigator>
+
+    <navigator url="./intro/edit_intro" class="t-cell" hover-class="weui-cell_active"
+    bindtap="bindIntroTap">
+      <view class="weui-cell__bd">
+        <text>个人简介</text>
+      </view>
+      <view class="icon">
+        <image class="icon-right" src="/images/icon-right/right.png"></image>
+      </view>
+    </navigator>       
+
+  </view>
+  <view class="weui-cells__title"></view> 
+  <view class="cell-box">
+    <view class="t-cell" hover-class="weui-cell_active"
+    bindtap="bindServiceTap">
+      <view class="weui-cell__bd">
+        <text>联系客服</text>
+      </view>
+      <view class="icon">
+        <image class="icon-right" src="/images/icon-right/right.png"></image>
+      </view>
+    </view>    
+  </view> 
+  
+  <view class="t-cell" hover-class="weui-cell_active"
+    bindtap="bindManangerTap"  wx:if="{{showManager}}">
+      <view class="weui-cell__bd" >
+        <text>管理入口</text>
+      </view>
+      <view class="icon">
+        <image class="icon-right" src="/images/icon-right/right.png"></image>
+      </view>
+  </view>         
+</view>
+
+<view class='service_window' wx:if="{{showMakePhone}}"  placement="bottom" bind:visible-change="closeMakePhone" data-index="2">
+  <view class="win-content">
+    <view class="win-title border-bottom-1px" wx:if="{{serviceTimeDuration}}">
+      服务时间: {{serviceTimeDuration}}
+    </view>
+    <view class="win-phone {{88888888 ? 'border-bottom-1px' : ''}}" bind:tap="call">电话客服</view>
+    <button class="win-phone border-bottom-1px online" open-type="contact" wx:if="{{88888888}}">在线客服</button>
+    <view class="win-close"
+    bindtap="closeMakePhone">取消</view>
+  </view>
+</view>
+
+
+
+
+

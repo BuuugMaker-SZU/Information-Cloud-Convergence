@@ -1,0 +1,9 @@
+<!--pages/userCenter/myCollege/myCollege.wxml-->
+
+<view class="myMajor-input">
+  <text class="input-label">专业：</text>
+  <input class="input-field" type="string" placeholder="请输入您的专业" bindinput="onMajorInput" value="{{Major}}"></input>
+</view>
+<view class="myMajor-edit__input--desc" style="width: 750rpx; height: 88rpx; display: block; box-sizing: border-box"> 最多可输入15个字 </view>
+
+<button class="save-button" bindtap="onSaveMajor" disabled="{{!Major}}" style="width: 686rpx; height: 88rpx; display: block; ">保存</button>

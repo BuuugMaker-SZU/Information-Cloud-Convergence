@@ -1,0 +1,9 @@
+<!--pages/userCenter/PhoneNumber/edit_phone.wxss.wxml-->
+<view class="phone-input">
+  <text class="input-label">手机号：</text>
+  <input class="input-field" type="number" placeholder="请输入联系电话" bindinput="onPhoneNumberInput" value="{{phoneNumber}}"></input>
+</view>
+
+<view class="phone-edit__input--desc" style="width: 750rpx; height: 88rpx; display: block; box-sizing: border-box"> 最多可输入11个位 </view>
+
+<button class="save-button" bindtap="onSavePhoneNumber" disabled="{{!phoneNumber}}" style="width: 686rpx; height: 88rpx; display: block; ">保存</button>

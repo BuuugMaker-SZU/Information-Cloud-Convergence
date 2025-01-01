@@ -1,0 +1,28 @@
+<!-- profile.wxml -->
+
+<view class="profile">
+  <view  class="form-item" hover-class="navigator-hover">
+    <text class="label">头像</text>
+    <image src="{{localUserInfo.avatarUrl}} " mode="aspectFit"  class="photo" bindtap='changeAvatar'/>
+    <image src="/images/icon-right/right.png" class="icon" />
+  </view>
+
+  <navigator url="/pages/userCenter/userInfo/nickName/edit_nickName" class="form-item" hover-class="navigator-hover">
+    <text class="label">昵称</text>
+    <view class="content" >
+      <text class="info" >{{localUserInfo.nickName}}</text>
+    </view>
+    <image src="/images/icon-right/right.png" class="icon" />
+  </navigator>
+  <view class="form-item" hover-class="navigator-hover" bindtap="showGenderPicker" >
+    <text class="label">性别</text>
+        <view class="content">
+          <text class="info"  >{{localUserInfo.gender}}</text>
+        </view>
+      
+    <image src="/images/icon-right/right.png" class="icon" />
+  </view>
+
+  <!-- 类似的其他表单项 -->
+</view>
+

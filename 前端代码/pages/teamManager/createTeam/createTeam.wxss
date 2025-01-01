@@ -1,0 +1,110 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  /*align-items: flex-start;*/
+  padding: 45rpx;
+  width: 680rpx; /* 调整宽度为600rpx */
+  height: 1200rpx;
+  border-radius: 5mm;
+  background-color: #fff; /* 设置背景颜色为白色 */
+  border: 1rpx solid #f5f5f5; /* 设置边框为灰色 */
+  padding: 20rpx;
+  
+  
+}
+.picker view {
+  font-size: 30px; /* 调整选项的字体大小 */
+  padding: 20rpx;
+}
+.form-group , .pick{
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+  margin-left: 20rpx;
+  padding-bottom: 30rpx;
+}
+
+.form-group text {
+  width: 150rpx;
+}
+.pick text{
+  width: 150rpx;
+}
+
+.form-group input,.form-group textarea {
+  flex: 1;
+  height: 50rpx;
+  width: 400rpx;
+  border-bottom: 1rpx solid #ccc;
+  border-radius: 2mm;
+  padding: 5rpx;
+  
+}
+
+.description-group {
+  align-items: flex-start;
+}
+
+.description-group textarea {
+  height: 160rpx;
+  width: 400rpx;
+  border: 1rpx solid #ccc;
+  padding: 5rpx;
+}
+
+.upload-group {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  margin-top: 60rpx;
+
+}
+
+
+.upload-btn {
+  margin-top: 10rpx;
+  background-color: #007aff;
+  color: #fff;
+  border: none;
+  padding: 10rpx 20rpx;
+  border-radius: 4rpx;
+}
+.publish-btn {
+  align-items: center;
+  width: 700rpx;
+  height: 80rpx; /* 设置按钮高度，可以根据需要调整 */
+  background-color: #577A88; /* 设置按钮背景颜色，可以根据需要修改 */
+  color: #fff; /* 设置按钮文本颜色，可以根据需要修改 */
+  border: none; /* 移除按钮边框 */
+  border-radius: 10rpx; /* 设置按钮圆角半径，可以根据需要修改 */
+  font-size: 35rpx; /* 设置按钮文本字号，可以根据需要修改 */
+  text-align: center; /* 水平居中文本 */
+  line-height: 50rpx; /* 垂直居中文本 */
+  
+}
+
+.success-message {
+  text-align: center;
+  color: #007bff;
+  font-size: 16rpx;
+  margin-top: 20rpx;
+}
+.create-page{
+  height: 1600rpx;
+  background-color:#eeeeee;
+}
+.con_text{
+  font-weight: bold;
+  font-size: 35rpx;
+  padding: 20rpx;
+  margin-bottom: 30rpx;
+}
+.date-picker1{
+  width: 410rpx;
+}
+.star {
+  color: red; /* 可自定义星号的颜色 */
+  font-size: 16px; /* 可自定义星号的大小 */
+  margin-right: -70px; /* 可自定义星号与输入框之间的间距 */
+  white-space: nowrap;
+}

@@ -1,0 +1,71 @@
+<!--pages/userCenter/editActivity/editActivity.wxml-->
+<!--pages/teamManager/editTeam/editTeam.wxml-->
+<view class="container">
+  <view class="input-container">
+    <text>活动名称：</text>
+    <input placeholder="请输入活动名称" value="{{actname}}" bindinput="inputActName" />
+  </view>
+  
+  <view class="input-container">
+    <text style="margin-left: -133px;">活动类型：</text>
+  <picker mode="selector" style="width: 268px;" value="{{typeIndex}}" range="{{typeArray}}" bindchange="onTypeChange">
+    <view>{{typeArray[typeIndex]}}</view>
+  </picker>
+
+  </view>
+  <view class="input-container">
+    <text style="margin-left: -128px;">活动地点：</text>
+    <input placeholder="请输入活动地点" value="{{location}}" bindinput="inputLocation" />
+  </view>
+  <view class="input-container">
+    <text style="margin-left: -132px;">活动日期：</text>
+    <picker mode="date" style="width: 268px;" value="{{date}}" bindchange="selectDate">
+      <view>{{date}}</view>
+    </picker>
+  </view>
+  <view class="input-container">
+    <text style="margin-left: -127px;">主办单位：</text>
+    <input placeholder="请输入主办单位" value="{{organizer}}" bindinput="inputOrganizer" />
+  </view>
+
+  <view class="input-container">
+  <text style="margin-left: -88px;">允许增加小队：</text>
+  <radio-group style="display: flex; gap: 20px;">
+    <radio value="是" checked="{{permission=='1'}}" color="#577A88">是</radio>
+    <radio value="否" checked="{{permission=='0'}}" color="#577A88">否</radio>
+  </radio-group>
+</view>
+
+<view class="input-container">
+  <text style="margin-left: -85px;margin-right: 60px;">允许报名：</text>
+  <radio-group style="display: flex; gap: 20px;">
+    <radio value="是" checked="{{status=='1'}}" color="#577A88">是</radio>
+    <radio value="否" checked="{{status=='0'}}" color="#577A88">否</radio>
+  </radio-group>
+</view>
+  
+  <view class="input-container">
+    <text>活动介绍：</text>
+    <textarea placeholder="请输入活动介绍" value="{{introduction}}" bindinput="inputintroduction"></textarea>
+  </view>
+
+  <view class="input-container">
+    <text>活动奖励：</text>
+    <textarea placeholder="请输入活动奖励" value="{{reward}}" bindinput="inputReward"></textarea>
+  </view>
+
+  <view class="upload-container">
+  <text style="margin-left: -250px;">上传活动图片：</text>
+  <!-- 图片显示区域 -->
+  <view class="image-container">
+    <image src="{{imgsrc}}" class="uploaded-image"></image>
+  </view>
+  <!-- 上传按钮 -->
+  <button bindtap="chooseMedia" class="upload-button">
+    <text style="margin-left: auto;">点击上传图片</text>
+  </button>
+</view>
+
+  <button bindtap="updateTeamInfo">确认修改</button>
+</view>
+

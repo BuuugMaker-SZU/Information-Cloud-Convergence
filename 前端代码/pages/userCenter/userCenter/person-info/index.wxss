@@ -1,0 +1,66 @@
+/* profile.wxss */
+.profile {
+  padding: 30rpx 32rpx 30rpx 32rpx;
+}
+
+.form-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx solid rgb(223, 223, 223);
+  padding: 30rpx 0;
+}
+
+.label {
+  font-size: 32rpx;
+}
+
+.icon {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.photo{
+  border-radius: 100% ;
+  width: 100rpx ;
+  height: 100rpx ;
+  margin-left: 70%;
+
+}
+.content {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  text-align: right;
+  margin-left: 75%;
+  font-size: 30rpx;
+}
+.info {
+  font-size: 30rpx;
+  margin-left: 100%;
+  text-align: right;
+  flex: 1;
+}
+
+.navigator-hover {
+  background-color: #f5f5f5;
+}
+/* profile.wxss */
+.gender-picker-modal {
+  /* 自定义性别选择器的样式，例如设置宽度、颜色、边框等 */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: #f5f5f5;
+  z-index: 999;
+}
+
+
+.gender-picker-container {
+  font-size: medium;
+  /* 其他样式属性 */
+}
+
+/* 为了美化选择器，你可能需要添加更多样式 */

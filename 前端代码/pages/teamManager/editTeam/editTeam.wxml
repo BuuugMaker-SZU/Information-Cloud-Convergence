@@ -1,0 +1,32 @@
+<!--pages/teamManager/editTeam/editTeam.wxml-->
+<view class="container">
+  <view class="input-container">
+    <text>队伍名称：</text>
+    <input placeholder="请输入队伍名称" value="{{groupname}}" bindinput="inputTeamName" />
+  </view>
+  <view class="input-container">
+    <text>当前人数：</text>
+    <input placeholder="请输入当前人数" value="{{current}}" bindinput="inputCaptain" />
+  </view>
+  <view class="input-container">
+    <text>所需人数：</text>
+    <input placeholder="请输入所需人数" value="{{required}}" bindinput="inputLocation" />
+  </view>
+  <view class="input-container">
+    <text>联系电话：</text>
+    <input placeholder="请输入联系电话" value="{{tel}}" bindinput="inputTel" />
+  </view>
+  <view class="input-container">
+    <text>日期：</text>
+    <picker mode="date" value="{{date}}" bindchange="selectDate">
+      <view>{{date}}</view>
+    </picker>
+  </view>
+  <view class="input-container">
+    <text>工作内容：</text>
+    <textarea placeholder="请输入工作内容" value="{{introduction}}" bindinput="inputintroduction"></textarea>
+
+  </view>
+  <button bindtap="updateTeamInfo">确认修改</button>
+</view>
+

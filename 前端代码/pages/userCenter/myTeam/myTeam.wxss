@@ -1,0 +1,62 @@
+
+body{
+  background-color: #f5f5f5;
+}
+.content{
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+}
+
+.group-content{ 
+  display: flex;
+  justify-content: space-between; /* 将子元素分散对齐，确保button位于模块的水平中线上 */
+  align-items: center; /* 将子元素在纵轴上居中对齐 */
+  border: 1px solid white;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 5px; 
+  background-color: white;
+ } 
+ .group{ 
+   flex: 1;
+   margin-left: 10px; 
+   display: inline-block; 
+   width: 200px; 
+ } 
+ .group text {
+  white-space: pre-line; /* 允许文本换行 */
+}
+.introduction{
+  display: flex;
+  justify-content: flex-start;
+  height: 25px;
+  width: 250px;
+  font-size: 15px;
+  padding-bottom: 27rpx;
+  padding-top: 20rpx;
+  margin-top: -15rpx;
+  overflow: hidden; /* 隐藏溢出内容 */
+  display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* 限制为两行 */
+  text-overflow: ellipsis; /* 显示省略号 */
+}
+ .group-button{ 
+   display: inline-block; 
+   height: 40rpx; 
+   width: 80rpx; 
+   border: none; 
+   border-radius: 8rpx; 
+   text-align: center; 
+   margin-right: 70px;
+   margin-bottom: 20px;
+ } 
+.scroll-button{
+  text-align: center;
+  font-weight: lighter;
+  font-size: 15px;
+}

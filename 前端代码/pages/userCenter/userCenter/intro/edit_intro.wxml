@@ -1,0 +1,9 @@
+
+<text class="input-label">个人简介</text>
+<view class="intro-input">
+  <input class="input-field" type="number" placeholder="在这里输入您的个人简介" bindinput="onIntroInput" value="{{introduction}}"></input>
+</view>
+
+
+
+<button class="save-button" bindtap="onSaveIntro" disabled="{{!introduction}}" style="width: 686rpx; height: 88rpx; display: block; ">保存</button>

@@ -1,0 +1,28 @@
+<view class="content">
+  <view wx:for="{{groups}}" wx:key="groupid" class="group-content">
+  <!-- 小组的显示内容，使用{{item.xxx}}来引用动态数据 -->
+  <!-- ... -->
+  <view class="group">
+    <text style="font-weight: bold; font-size: larger;">{{item.groupname}}\n</text>
+    <text style="margin-bottom: 5px; white-space: break-spaces;">队长：{{item.chargename}}\n</text>
+    <text style="margin-bottom: 5px; white-space: break-spaces;">活动名称：{{item.actname}}\n</text>
+    <text style="margin-bottom: 5px; white-space: break-spaces;">时间：{{item.date}}\n</text>
+    <text style="margin-bottom: 5px; white-space: break-spaces;color: {{item.current < item.required ? 'green' : 'red'}}">人数：{{item.current}}/{{item.required}}</text> 
+    <text class="introduction" style=" white-space: break-spaces;">工作内容：{{item.introduction}}</text>
+  </view>
+  <view class="group-button"> 
+    <button bindtap="showActionSheet" data-openid="{{item.openid}}" data-actid="{{item.actid}}"   data-groupid="{{item.groupid}}" data-groupname="{{item.groupname}}" 
+    data-current="{{item.current}}" data-required="{{item.required}}"
+    data-date="{{item.date}}" data-introduction="{{item.introduction}}"
+    data-tel="{{item.tel}}" data-chargename="{{item.chargename}}"
+    data-registered="{{item.registered}}" data-actname="{{item.actname}}" style="border-radius: 8px; color: white; background:#0CAC97;width:max-content;">更多</button> 
+  </view> 
+
+</view>
+<view class="scroll-button">已经到底了喔~~</view>
+
+</view> 
+
+
+
+ 

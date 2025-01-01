@@ -1,0 +1,10 @@
+<view class="message-list">
+  <block wx:for="{{ messages }}" wx:key="index">
+    <view class="message-item" bindtap="handleItemClick" data-index="{{ index }}">
+      <view class="message-title">{{ item.title }}</view>
+      <view class="message-time">{{ item.time }}</view>
+      <view class="message-text">{{ item.text }}</view>
+    </view>
+    <view class="separator"></view>
+  </block>
+</view>

@@ -1,0 +1,7 @@
+<!--pages/userCenter/weixinID/edit_weixinID.wxml-->
+<view class="weixinId-input">
+  <text class="input-label">微信号：</text>
+  <input class="input-field" type="string" placeholder="请输入微信号" bindinput="onWeixinIdInput" value="{{weixinID}}" style="width: 591rpx; height: 69rpx; display: block; box-sizing: border-box"></input>
+</view>
+<view class="weixinID-edit__input--desc" style="width: 750rpx; height: 88rpx; display: block; box-sizing: border-box"> 最多可输入15个字 </view>
+<button class="save-button" bindtap="onSaveWeixinId" disabled="{{!weixinID}}" style="width: 686rpx; height: 88rpx; display: block; ">保存</button>
