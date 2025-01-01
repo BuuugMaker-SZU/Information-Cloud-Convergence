@@ -1,0 +1,71 @@
+{
+  "pages": [
+    "pages/homepage/homepage",
+    "pages/teamManager/teamManager",
+    "pages/teamManager/createTeam/createTeam",
+    "pages/detail/detail",
+    "pages/userCenter/userCenter",
+    "pages/message/message",
+    "pages/create/create",
+    "pages/userCenter/myMajor/myMajor",
+    "pages/userCenter/weixinID/edit_weixinID",
+    "pages/userCenter/PhoneNumber/edit_phone",
+    "pages/homepage/search",
+    "pages/userCenter/intro/edit_intro",
+    "pages/userCenter/userInfo/edit_info",
+    "pages/userCenter/userInfo/nickName/edit_nickName",
+    "pages/teamManager/editTeam/editTeam",
+    "pages/userCenter/activityManager/activityManager",
+    "pages/teamManager/teamMemberManager/teamMemberManager",
+    "pages/userCenter/myTeam/myTeam",
+    
+    "pages/homepage/searchResult",
+    "pages/userCenter/editActivity/editActivity",
+    
+    "pages/conversations/conversations",
+  
+		"pages/chat/groupChat/groupChat",
+		"pages/chat/privateChat/privateChat",
+		"pages/chat/groupMember/groupMember"
+
+
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "信息云汇",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#efefef",
+    "onReachBottomDistance": 50
+  },
+  "tabBar": {
+    "selectedColor": "#0CAC97",
+   
+    "list": [
+      {
+        "pagePath": "pages/homepage/homepage",
+        "text": "首页",
+        "iconPath": "/images/tabs/home.png",
+        "selectedIconPath": "/images/tabs/home2.png"
+      },
+      
+      {
+        "pagePath": "pages/conversations/conversations",
+        "text": "信息",
+        "iconPath": "/images/tabs/chat.png",
+        "selectedIconPath": "/images/tabs/chat2.png"
+      },
+
+      {
+        "pagePath": "pages/userCenter/userCenter",
+        "text": "个人",
+        "iconPath": "/images/tabs/me.png",
+        "selectedIconPath": "/images/tabs/me2.png"
+      }
+    ]
+  },
+  
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
